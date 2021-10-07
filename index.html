@@ -10,7 +10,7 @@
 
   <body>
     <!--Navbar,stays at the top throughout-->
-    <header class="header">
+    <header class="header" id="header">
       <div>
         <a href="">View Highscore</a>
       </div>
@@ -28,7 +28,7 @@
         <h1 class="title">Coding quiz challenge</h1>
       </div>
 
-      <div class="container">
+      <div class="container" id="container">
         <p class="paragraph">
           Try to answer the following question which are based on; HTML,CSS and
           JavaScript.You have 80 seconds to answer all questions. Keep in mind
@@ -36,22 +36,18 @@
         </p>
       </div>
 
-      <div class="btn"></div>
-        <button class="start-btn">Start Quiz</button>
+      <div>
+        <button class="start-btn" id="start-btn">Start Quiz</button>
       </div>
     </section>
-     
+
     <!--Quiz questions page + answer button-->
     <section class="questions-section">
+      <div class="questions" id="questions">
+        <h2 class="question-title" id="questions-title"></h2>
 
-      <div class="questions">
-
-       <h2 class="question-title"></h2>
-
-       <div class="answer-btn"></div>
-
+        <div class="answer-btn" id="answer-btn"></div>
       </div>
-
     </section>
 
     <script src="./assests/javascript.js"></script>

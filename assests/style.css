@@ -57,5 +57,7 @@ body {
   padding: 20px;
 }
 
-.questions-title {
+.answer-btn {
+  display: grid;
+  margin: 15px;
 }
