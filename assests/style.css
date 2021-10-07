@@ -44,8 +44,18 @@ body {
 
 .start-btn:hover {
   background-color: #80da54;
+  cursor: pointer;
 }
 .start-btn:active {
   position: relative;
   top: 1px;
+}
+
+.questions {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.questions-title {
 }
