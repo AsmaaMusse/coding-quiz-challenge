@@ -1,4 +1,6 @@
 const questions = document.getElementById(questions);
+const highScore = document.getElementById(highScore);
+const timer = document.getElementById(timer);
 
 // Create an array for question
 
