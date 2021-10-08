@@ -3,7 +3,6 @@
 }
 
 body {
-  text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
@@ -79,6 +78,10 @@ body {
   background-color: #80da54;
   border-style: solid;
   border-radius: 5px;
+}
+
+.option-list {
+  padding: 20px;
 }
 
 .answer-btn {
