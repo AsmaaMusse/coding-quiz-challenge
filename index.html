@@ -12,13 +12,13 @@
     <!--Navbar,stays at the top throughout-->
     <header class="header" id="header">
       <div class="highscore-container" id="highScore">
-        <a href="#">View Highscore</a>
+        <a href="#">View High Score</a>
       </div>
 
       <div>
         <!--Timer to countdown till end of the game-->
         <time>
-          <span id="timer">Timer: 80</span>
+          <span class="timer" id="timer">Timer: 80</span>
         </time>
       </div>
     </header>
@@ -26,11 +26,11 @@
     <!--Initial starter page -->
     <section>
       <div>
-        <h1 class="title">Coding quiz challenge</h1>
+        <h1 class="title" id="title">Coding quiz challenge</h1>
       </div>
 
       <div class="container" id="container">
-        <p class="paragraph">
+        <p class="paragraph" id="paragraph">
           Try to answer the following question which are based on; HTML,CSS and
           JavaScript.You have 80 seconds to answer all questions. Keep in mind
           that for any incorrect answer you will be penalized by 10 seconds.
@@ -43,11 +43,28 @@
     </section>
 
     <!--Quiz questions page + answer button-->
-    <section class="questions-section">
+    <section class="questions-section" id="questions-section">
       <div class="questions" id="questions">
         <h2 class="question-title" id="questions-title"></h2>
 
         <div class="answer-btn" id="answer-btn"></div>
+      </div>
+    </section>
+
+    <!--End of quiz page-->
+    <section class="end-container" id="end-container">
+      <div>
+        <h1>End of Quiz</h1>
+      </div>
+
+      <!--High score-->
+      <div class="high-score-container" id="high-score-container">
+        <h2 class="high-score" id="high-score">High Score</h2>
+      </div>
+
+      <!--Restart quiz-->
+      <div>
+        <button class="restart-btn" id="restart-btn"></button>
       </div>
     </section>
 
