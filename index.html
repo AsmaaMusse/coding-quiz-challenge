@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assests/style.css" />
+    <link
+      rel="stylesheet"
+      href="path/to/font-awesome/css/font-awesome.min.css"
+    />
     <title>Coding quiz</title>
   </head>
 
@@ -79,20 +83,24 @@
       </footer>
     </div>
 
-    <!--End of quiz page-->
-    <section class="end-container" id="end-container">
-      <div>
-        <!-- <h1>End of Quiz</h1> -->
+    <!--Results Page-->
+    <!--Score total-->
+    <section class="results-container" id="results-container">
+      <div class="final-text" id="final-text">
+        You have completed this Quiz!
+      </div>
+      <div class="score">
+        <span
+          >You have scored
+          <p></p>
+          out of 6</span
+        >
       </div>
 
-      <!--High score-->
-      <div class="high-score-container" id="high-score-container">
-        <!-- <h2 class="high-score" id="high-score">High Score</h2> -->
-      </div>
-
-      <!--Restart quiz-->
-      <div>
-        <!-- <button class="restart-btn" id="restart-btn"></button> -->
+      <!--Quit/Restart button-->
+      <div class="buttons">
+        <button class="restart">Restart Quiz</button>
+        <button class="quit">Quit Game</button>
       </div>
     </section>
 
