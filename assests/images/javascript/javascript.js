@@ -28,4 +28,16 @@ continueBtn.onclick = () => {
   const questionSection = document.querySelector(".questions-section");
   questionSection.classList.add("activeQuestion");
   // Shows Questions page
+  showQuestion();
 };
+
+// Create a questions array -> other js page
+
+let questionCount = 0;
+
+// Fetching questions from the array
+function showQuestion() {
+  const questionText = document.querySelector("question-text");
+  let questionTag = "<span>" + questions[0].question + "</span>";
+  questionText.innerHTML = questionTag;
+}
