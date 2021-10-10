@@ -36,9 +36,7 @@ body {
 /* Initial front page style */
 
 .container {
-  display: flex;
   display: none;
-  flex-direction: row;
   justify-content: center;
   background-color: #ffff;
   border-style: solid;
@@ -49,15 +47,9 @@ body {
   margin: 10px 50px;
 }
 
-/* .title {
-  text-align: center;
-}
-
-.paragraph {
-  text-align: center;
-} */
-
+/* Start button */
 .start-btn {
+  display: none;
   height: 50px;
   width: 80px;
   border-radius: 10px;
@@ -68,6 +60,7 @@ body {
   border-color: black;
   cursor: pointer;
 }
+
 .start-btn:active {
   position: relative;
   top: 1px;
@@ -100,7 +93,6 @@ body {
 }
 
 section .option-list .option {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   background: aliceblue;
@@ -120,4 +112,44 @@ section .option-list .option:hover {
 .next-question {
   height: 30px;
   padding: 0px 13px;
+}
+
+/* Results Page */
+
+.results-container {
+  /* display: none; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffff;
+  width: 450px;
+  padding: 25px 30px;
+  border-radius: 15px;
+}
+
+.score span p {
+  font-weight: 500;
+  padding: 0 5px;
+}
+
+/* Restart and Quit game button */
+.results-container .buttons button {
+  margin: 5px;
+  height: 30px;
+  padding: 0px 13px;
+  border-radius: 5px;
+  border-color: black;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #78c4f7;
+  border-color: black;
+  cursor: pointer;
+}
+
+.buttons button:active {
+  position: relative;
+  top: 1px;
 }
