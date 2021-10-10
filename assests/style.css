@@ -80,7 +80,7 @@ body {
   transform: translate(-50%, -50%) scale(0.9);
 }
 
-.starter-container .activeStarter {
+.starter-container.activeStarter {
   opacity: 1;
   pointer-events: auto;
   z-index: 5;

@@ -1,14 +1,16 @@
 // Set button variables
-const startBtn = document.getElementById("start-btn");
-const nextQuestionBtn = document.getElementById("next-question");
-const restartBtn = document.getElementById("restart");
-const quitBtn = document.getElementById("quit");
+const startBtn = document.querySelector(".start-btn button");
+const nextQuestionBtn = document.querySelector(".next-question");
+const restartBtn = document.querySelector(".buttons .restart");
+const quitBtn = document.querySelector(".buttons .quit");
 const starterContainer = document.querySelector(".starter-container");
 
 // When Start btn is clicked
 startBtn.onclick = () => {
   starterContainer.classList.add("activeStarter");
 };
+
+// When Quit btn is clicked
 
 // quiz questions:
 
