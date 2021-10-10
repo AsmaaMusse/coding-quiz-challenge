@@ -28,41 +28,71 @@ continueBtn.onclick = () => {
   // Shows first quiz question
 };
 
-// quiz questions:
+// Create a questions array
 
-// 1. What does CSS stand for?
-// A. Creative Style Sheets
-// B. Compact Style Sheets
-// C. Cascading Style Sheets -->
+let questions = [
+  {
+    Number: 1,
+    question: "What does CSS stand for?",
+    answer: "Cascading Style Sheets",
+    options: [
+      "Creative Style Sheets",
+      "Compact Style Sheets",
+      "Cascading Style Sheets",
+    ],
+  },
 
-// 2. Choose the correct HTML tag for the largest heading
-// A. <heading>
-// B. <h6>
-// C. <head>
-// D. <h1></h1> -->
+  {
+    Number: 2,
+    question: "Choose the correct HTML tag for the largest heading",
+    answer: "<h1></h1>",
+    options: ["<heading>", "<h6>", "<head>", "<h1></h1>"],
+  },
 
-// 3. Which is the correct code for a relative hyperlink?
-// A. < a href= " ../index.html " > Link < /a > -->
-// B. Www.index.com
-// C. < a href= " html.index.com " > Link < /a >
-// D. < a href= " www.index.com " > Link < /a >
+  {
+    Number: 3,
+    question: "Which is the correct code for a relative hyperlink?",
+    answer: "< a href= " ../index.html " > Link < /a >",
+    options: [
+      "< a href= " ../index.html " > Link < /a >",
+      "Www.index.com",
+      "< a href= " html.index.com " > Link < /a >",
+      "< a href= " www.index.com " > Link < /a >"
+    ],
+  },
 
-// 4. Where is the correct place to insert a JavaScript?
-// A. the <body> section
-// B. The <head> section
-// C. Both the <head> section and the <body> section are correct -->
+  {
+    Number: 4,
+    question: "Where is the correct place to insert a JavaScript?",
+    answer: "Both the <head> section and the <body> section are correct",
+    options: [
+      "The <body> section",
+      "The <head> section",
+      "Both the <head> section and the <body> section are correct",
+    ],
+  },
 
-// 5. How do you create a function in JavaScript?
-// A. function myFunction{} -->
-// B. function = myFunction()
-// C. function:myFunction()
-
-// 6. How does a WHILE loop start?
-// A. while i = 1 to 10
-// B. while (i<=10) -->
-// C. while (i<=10;i ++)
-
-// Create an array for question
+  {
+    Number: 5,
+    question: "How do you create a function in JavaScript?",
+    answer: "function myFunction{}",
+    options: [
+      "function myFunction{}",
+      "function myFunction{}",
+      "function:myFunction()",
+    ],
+  },
+  {
+    Number: 6,
+    question: "How does a WHILE loop start?",
+    answer: "while (i<=10)",
+    options: [
+      "while i = 1 to 10",
+      "while (i<=10)",
+      "while (i<=10;i ++)",
+    ],
+  },
+];
 
 // Create function to start game
 
