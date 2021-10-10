@@ -1,6 +1,14 @@
-const questions = document.getElementById(questions);
-const highScore = document.getElementById(highScore);
-const timer = document.getElementById(timer);
+// Set button variables
+const startBtn = document.getElementById("start-btn");
+const nextQuestionBtn = document.getElementById("next-question");
+const restartBtn = document.getElementById("restart");
+const quitBtn = document.getElementById("quit");
+const starterContainer = document.querySelector(".starter-container");
+
+// When Start btn is clicked
+startBtn.onclick = () => {
+  starterContainer.classList.add("activeStarter");
+};
 
 // quiz questions:
 
