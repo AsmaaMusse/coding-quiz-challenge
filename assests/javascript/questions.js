@@ -16,7 +16,7 @@ let questions = [
       Number: 2,
       question: "Choose the correct HTML tag for the largest heading",
       answer: "<h1></h1>",
-      options: ["<heading>", "<h6>", "<head>", "<h1></h1>"],
+      options: ["<heading>", "<head>", "<h1></h1>"],
     },
   
     {
@@ -25,7 +25,6 @@ let questions = [
       answer: "< a href= " ../index.html " > Link < /a >",
       options: [
         "< a href= " ../index.html " > Link < /a >",
-        "Www.index.com",
         "< a href= " html.index.com " > Link < /a >",
         "< a href= " www.index.com " > Link < /a >"
       ],

@@ -28,7 +28,7 @@ continueBtn.onclick = () => {
   const questionSection = document.querySelector(".questions-section");
   questionSection.classList.add("activeQuestion");
   // Shows Questions page
-  showQuestion();
+  showQuestions(1);
 };
 
 // Create a questions array -> other js page
@@ -36,8 +36,19 @@ continueBtn.onclick = () => {
 let questionCount = 0;
 
 // Fetching questions from the array
-function showQuestion() {
+function showQuestions(index) {
   const questionText = document.querySelector("question-text");
-  let questionTag = "<span>" + questions[0].question + "</span>";
+  const optionList = document.querySelector(".option-list");
+  let questionTag = "<span>" + questions[index].question + "</span>";
+  let optionTag =
+    '<div class="option">' +
+    question[index].options[0] +
+    "<span></span></div>" +
+    '<div class="option">' +
+    question[index].options[0] +
+    "<span></span></div>" +
+    '<div class="option">' +
+    question[index].options[0] +
+    "<span></span></div>";
   questionText.innerHTML = questionTag;
 }
