@@ -65,6 +65,9 @@ body {
 /* Initial front page style */
 
 .starter-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -75,9 +78,9 @@ body {
   border-color: rgb(4, 4, 172);
   border-radius: 5px;
   padding: 20px 30px;
-  /* opacity: 0;
+  opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.9); */
+  transform: translate(-50%, -50%) scale(0.9);
 }
 
 .starter-container.activeStarter {

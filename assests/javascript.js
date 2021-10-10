@@ -4,6 +4,7 @@ const nextQuestionBtn = document.querySelector(".next-question");
 const restartBtn = document.querySelector(".buttons .restart");
 const quitBtn = document.querySelector(".buttons .quit");
 const starterContainer = document.querySelector(".starter-container");
+const exitBtn = starterContainer.querySelector(".buttons .exit");
 
 // When Start btn is clicked
 startBtn.onclick = () => {
@@ -11,7 +12,13 @@ startBtn.onclick = () => {
   // show start container page
 };
 
-// When Qu btn is clicked
+// When Exit btn is clicked
+exitBtn.onclick = () => {
+  starterContainer.classList.remove("activeStarter");
+  // hides start container page
+};
+
+// When exit btn is clicked
 
 // quiz questions:
 
