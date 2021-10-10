@@ -84,10 +84,10 @@ body {
 }
 
 .starter-container.activeStarter,
-.questions-section.activeQuiz {
+.questions-section.activeQuestion {
+  z-index: 5;
   opacity: 1;
   pointer-events: auto;
-  z-index: 5;
   transform: translate(-50%, -50%) scale(1);
 }
 
