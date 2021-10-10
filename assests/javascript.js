@@ -8,9 +8,10 @@ const starterContainer = document.querySelector(".starter-container");
 // When Start btn is clicked
 startBtn.onclick = () => {
   starterContainer.classList.add("activeStarter");
+  // show start container page
 };
 
-// When Quit btn is clicked
+// When Qu btn is clicked
 
 // quiz questions:
 
