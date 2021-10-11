@@ -23,14 +23,13 @@
       </div>
     </header>
 
+    <h1 class="title" id="title">Coding quiz challenge</h1>
+
     <!--Initial starter page -->
     <div class="start-btn" id="start-btn"><button>Start Quiz</button></div>
 
     <section class="starter-container" id="starter-container">
-      <div>
-        <h1 class="title" id="title">Coding quiz challenge</h1>
-      </div>
-
+    
       <div>
         <p class="paragraph" id="paragraph">
           Try to answer the following question which are based on; HTML,CSS and
@@ -55,26 +54,30 @@
       </header>
 
       <section>
-        <div class="question-text">
+        <h2 class="question-text">
           <span> What does CSS stand for?</span>
-        </div>
+        </h2>
+
         <div class="option-list">
-          <div class="option">
+          <button class="option">
             <span>Creative Style Sheets</span>
-          </div>
+          </button>
 
-          <div class="option">
+          <button class="option">
             <span>Compact Style Sheets</span>
-          </div>
+          </button>
 
-          <div class="option">
+          <button class="option">
             <span>Cascading Style Sheets</span>
-          </div>
+          </button>
         </div>
       </section>
+    
 
       <!--Quiz box footer-->
       <footer>
+        <div class="answer-alert-correct">Correct!</div>
+        <div class="answer-alert-incorrect">Wrong!</div>
         <button class="next-question">Next Question</button>
       </footer>
     </div>

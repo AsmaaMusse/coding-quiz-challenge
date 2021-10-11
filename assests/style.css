@@ -1,4 +1,6 @@
 :root {
+  --background: #ffff;
+  --border: rgb(0, 0, 255);
 }
 
 * {
@@ -28,8 +30,8 @@ body {
   width: 100px;
   height: 45px;
   border-style: solid;
-  border-color: blue;
-  background-color: #ffff;
+  border-color: var(--border);
+  background-color: var(--background);
   border-radius: 5px;
   font-weight: 400;
   font-size: 17px;
@@ -38,10 +40,6 @@ body {
 
 /* Start button */
 .start-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .start-btn button {
@@ -51,7 +49,7 @@ body {
   outline: none;
   border: none;
   border-radius: 10px;
-  background: #ffff;
+  background: var(--background);
 }
 
 .start-btn button:hover {
@@ -66,21 +64,16 @@ body {
 
 .starter-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 550px;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--background);
   border-style: solid;
-  border-color: rgb(4, 4, 172);
+  border-color:var(--border);
   border-radius: 5px;
-  padding: 20px 30px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.9);
+  text-align: center;
+  margin: 40px;
+  max-height: 500px;
+  padding: 50px;
 }
 
 .starter-container.activeStarter,
@@ -88,35 +81,32 @@ body {
   z-index: 5;
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+
 }
 
 /* Quiz question styling */
 
 .questions-section {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 550px;
-  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
   border-style: solid;
-  border-color: rgb(4, 4, 172);
+  border-color: var(--border);
   border-radius: 5px;
-  padding: 20px 30px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.9);
+  text-align: center;
+  margin: 40px;
+  padding: 40px;
 }
 
-.questions-section .question-text {
+.questions-section section .question-text {
   font-size: 25px;
   font-weight: 500;
 }
 
-.questions-section .option-list {
-  padding: 20px 0px;
-  display: block;
+.questions-section section .option-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 section .option-list .option {
@@ -125,20 +115,47 @@ section .option-list .option {
   background: aliceblue;
   border: 1px;
   border-style: solid;
-  border-color: #84c5fe;
+  border-color: var(--border);
   border-radius: 7px;
-  margin-bottom: 15px;
-  padding: 8px 15px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 section .option-list .option:hover {
   background: #cce5ff;
-  border-color: #b8daff;
+  border-color: var(--border);
+  cursor: pointer;
+}
+
+section .option-list .option:active {
+  background-color: rgb(162, 255, 235);
 }
 
 .next-question {
   height: 30px;
   padding: 0px 13px;
+}
+
+.next-question button:hover {
+  background: #cce5ff;
+  border-color: var(--border);
+  cursor: pointer;
+}
+
+.answer-alert-correct {
+  position: relative;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: yellowgreen;
+}
+
+.answer-alert-incorrect {
+  position: relative;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: rgb(209, 49, 49);
 }
 
 /* Results Page */
@@ -148,7 +165,7 @@ section .option-list .option:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffff;
+  background-color: var(--background);
   width: 450px;
   padding: 25px 30px;
   border-radius: 15px;
@@ -168,17 +185,24 @@ section .option-list .option:hover {
   height: 30px;
   padding: 0px 13px;
   border-radius: 5px;
-  border-color: black;
+  border-color: var(--border);
   cursor: pointer;
 }
 
 .buttons button:hover {
   background-color: #78c4f7;
-  border-color: black;
+  border-color: var(--border);
   cursor: pointer;
 }
 
 .buttons button:active {
   position: relative;
   top: 1px;
+}
+
+@media screen and (max-width: 576px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
