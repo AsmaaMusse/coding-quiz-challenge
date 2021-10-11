@@ -85,18 +85,21 @@
     <!--Results Page-->
     <!--Score total-->
     <section class="results-container" id="results-container">
-      <div class="final-text" id="final-text">
-        You have completed this Quiz!
-      </div>
-      <div class="score">
-        <span
-          >You have scored
-          <p></p>
-          out of 6</span
-        >
-      </div>
+      <form>
+        <h2 class="question">You've scored -- out of 6</h2>
 
-      <!--Quit/Restart button-->
+        <div>
+          <input placeholder="Enter your initials"/>
+        </div>
+
+        <div>
+          <button class="submit">Submit</button>
+        </div> 
+      </form>
+    </section>
+
+    <section class="game-over">
+      <h2>Game Over</h2>
       <div class="buttons" id="buttons">
         <button class="restart">Restart Quiz</button>
         <button class="exit">Exit Game</button>

@@ -39,8 +39,8 @@ body {
 }
 
 /* Start button */
-.start-btn {
-}
+/* .start-btn {
+} */
 
 .start-btn button {
   font-size: 25px;
@@ -161,23 +161,28 @@ section .option-list .option:active {
 /* Results Page */
 
 .results-container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
   background-color: var(--background);
-  width: 450px;
+  width: 500px;
+  margin: 20px 200px;
   padding: 25px 30px;
   border-radius: 15px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.9);
+  text-align: center;
 }
 
-.score span p {
-  font-weight: 500;
-  padding: 0 5px;
+.submit {
+  margin: 20px;
+  height: 30px;
+  padding: 0px 13px;
 }
+
+.submit:hover{
+  background-color: #78c4f7;
+  border-color: var(--border);
+  cursor: pointer;
+}
+ 
 
 /* Restart and Quit game button */
 .results-container .buttons button {
@@ -187,6 +192,18 @@ section .option-list .option:active {
   border-radius: 5px;
   border-color: var(--border);
   cursor: pointer;
+}
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  width: 500px;
+  margin: 20px 200px;
+  padding: 25px 30px;
+  border-radius: 15px;
+  text-align: center;
+}
 }
 
 .buttons button:hover {
@@ -204,5 +221,11 @@ section .option-list .option:active {
   .nav-container {
     flex-direction: column;
     align-items: center;
+  }
+ 
+  .results-container,
+  .game-over {
+    width: 220px;
+    margin: 50px;
   }
 }
