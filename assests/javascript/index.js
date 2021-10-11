@@ -1,14 +1,14 @@
 const renderQuestionSection = function() {
-    console.log("renderQuestionSection")
+    console.log("renderQuestionSection");
+
   // Render the current question
-
   // construct the HTML fort the question section
-
   // Append the container to the document
 
 };
 
 const removeStartContainer = function() {
+    console.log("removeStartContainer");
   // Target start container
   const starterContainer = document.getElementById("start-container");
 
@@ -18,8 +18,7 @@ const removeStartContainer = function() {
 
 // Function working when start button is called
 const startQuiz = function () {
-    console.log("start-quiz");
-
+    
   // Remove Start container
   removeStartContainer();
 
