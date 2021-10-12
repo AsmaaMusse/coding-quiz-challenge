@@ -104,7 +104,8 @@ const constructForm = function () {
   formContainer.append(formInputDiv, formButtonDiv);
 
   form.append(h2Element, formContainer);
-  divContainer, append(form);
+  divContainer.append(form);
+  console.log(form);
 
   return divContainer;
 };
@@ -155,7 +156,9 @@ const renderScoreForm = function () {
 
   // Construct score form
   const form = constructForm();
+
   // Append form to document
+  document.getElementById("main-container").append(form);
 };
 
 const verifyAnswer = function (event) {
