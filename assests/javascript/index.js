@@ -1,7 +1,7 @@
 const questions = [
   {
     title: "What does CSS stand for?",
-    answer: "Cascading Style Sheets",
+    correctOption: "Cascading Style Sheets",
     options: [
       "Creative Style Sheets",
       "Compact Style Sheets",
@@ -10,12 +10,12 @@ const questions = [
   },
   {
     title: "Choose the correct HTML tag for the largest heading",
-    answer: "<h1></h1>",
+    correctOption: "<h1></h1>",
     options: ["<heading>", "<h6>", "<h1></h1>"],
   },
   {
     title: "Where is the correct place to insert a JavaScript?",
-    answer: "Both the <head> section and the <body> section are correct",
+    correctOption: "Both the <head> section and the <body> section are correct",
     options: [
       "The <body> section",
       "The <head> section",
@@ -24,7 +24,7 @@ const questions = [
   },
   {
     title: "How do you create a function in JavaScript?",
-    answer: "function myFunction{}",
+    correctOption: "function myFunction{}",
     options: [
       "function myFunction{}",
       "function myFunction{}",
@@ -33,12 +33,13 @@ const questions = [
   },
   {
     title: "How does a WHILE loop start?",
-    answer: "while (i<=10)",
+    correctOption: "while (i<=10)",
     options: ["while i = 1 to 10", "while (i<=10)", "while (i<=10;i ++)"],
   },
 ];
 
 let count = questions.length * 5;
+let currentQuestionIndex = 0;
 
 const constructOptions = function (options) {
   const optionsContainer = document.createElement("div");
@@ -51,6 +52,8 @@ const constructOptions = function (options) {
     // create button
     const optionButton = document.createElement("button");
     optionButton.setAttribute("class", "option-item");
+    optionButton.setAttribute("name", "option");
+    optionButton.setAttribute("data-option", option);
     optionButton.textContent = option;
 
     // append to optionsContainer
@@ -60,10 +63,49 @@ const constructOptions = function (options) {
   return optionsContainer;
 };
 
+const verifyAnswer = function (event) {
+  const target = event.target;
+  const currentTarget = event.currentTarget;
+
+  console.log(target.getAttribute("name"));
+
+  // check if click is from button only
+  if (target.getAttribute("name") === "option") {
+    // Get the option that was clicked
+    const userOption = target.getAttribute("data-option");
+
+    // Get the correct option for the question
+    const correctOption = currentTarget.getAttribute("data-correct");
+
+    console.log(userOption, correctOption);
+
+    // verify the 2
+    if (userOption !== correctOption) {
+      // deduct 5 seconds
+      count -= 5;
+    } else {
+      console.log("CORRECT");
+    }
+  }
+
+  // Go to next question
+  currentQuestionIndex += 1;
+
+  // check if its the last question
+  if () {
+    // render the next question
+  removeQuestionContainer();
+  renderQuestionSection();
+
+  };
+};
+
 const constructQuestionContainer = function (question) {
   // construct container div
   const questionContainer = document.createElement("div");
   questionContainer.setAttribute("class", "container question-section");
+  questionContainer.setAttribute("id", "question-section");
+  questionContainer.setAttribute("data-correct", question.correctOption);
 
   //  construct h2 element
   const questionH2 = document.createElement("h2");
@@ -76,12 +118,15 @@ const constructQuestionContainer = function (question) {
   // appending h2 and options div to section div
   questionContainer.append(questionH2, options);
 
+  // Add event listener
+  questionContainer.addEventListener("click", verifyAnswer);
+
   return questionContainer;
 };
 
 const renderQuestionSection = function () {
   // Render the current question
-  const currentQuestion = questions[0];
+  const currentQuestion = questions[currentQuestionIndex];
 
   // construct the HTML fort the question section
   const questionContainer = constructQuestionContainer(currentQuestion);
@@ -95,6 +140,14 @@ const removeStartContainer = function () {
 
   // Remove from document
   starterContainer.remove();
+};
+
+const removeQuestionContainer = function () {
+  // Target question container
+  const questionContainer = document.getElementById("question-section");
+
+  // Remove from document
+  questionContainer.remove();
 };
 
 const startTimer = function () {
