@@ -1,7 +1,7 @@
 :root {
   --background: #ffff;
   --border: rgb(0, 0, 255);
-  --hover:#cce5ff;
+  --hover: #cce5ff;
 }
 
 * {
@@ -14,7 +14,7 @@ body {
   text-align: center;
 }
 
-/* header containing nav bar */
+/* Header Styling */
 .header {
   display: flex;
   flex-direction: row;
@@ -24,7 +24,7 @@ body {
   font-size: 20px;
 }
 
-/* Timer */
+/* Timer Styling*/
 .timer {
   display: flex;
   align-items: center;
@@ -39,10 +39,7 @@ body {
   padding: 0 8px;
 }
 
-/* Start button */
-/* .start-btn {
-} */
-
+/* Start button styling */
 .start-btn button {
   font-size: 25px;
   font-weight: 400;
@@ -69,7 +66,7 @@ body {
   flex-wrap: wrap;
   background-color: var(--background);
   border-style: solid;
-  border-color:var(--border);
+  border-color: var(--border);
   border-radius: 5px;
   text-align: center;
   margin: 40px;
@@ -77,17 +74,9 @@ body {
   padding: 50px;
 }
 
-.start-container.activeStarter,
-.questions-section.activeQuestion {
-  z-index: 5;
-  opacity: 1;
-  pointer-events: auto;
-
-}
-
 /* Quiz question styling */
 
-.questions-section {
+.question-section {
   display: flex;
   flex-direction: column;
   background-color: var(--background);
@@ -99,18 +88,18 @@ body {
   padding: 40px;
 }
 
-.questions-section section .question-text {
+.question-section .question-text {
   font-size: 25px;
   font-weight: 500;
 }
 
-.questions-section section .option-list {
+.question-section .option-list {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-section .option-list .option {
+.option-list .option-item {
   align-items: center;
   justify-content: space-between;
   background: aliceblue;
@@ -122,13 +111,13 @@ section .option-list .option {
   padding: 1rem;
 }
 
-section .option-list .option:hover {
+.option-item:hover {
   background: #cce5ff;
   border-color: var(--border);
   cursor: pointer;
 }
 
-section .option-list .option:active {
+.option-item:active {
   background-color: rgb(162, 255, 235);
 }
 
@@ -184,12 +173,11 @@ section .option-list .option:active {
   padding: 0px 13px;
 }
 
-.submit:hover{
+.submit:hover {
   background-color: var(--hover);
   border-color: var(--border);
   cursor: pointer;
 }
- 
 
 /* Restart and Quit game button */
 .results-container .buttons button {
@@ -212,7 +200,6 @@ section .option-list .option:active {
   text-align: center;
 }
 
-
 .buttons button:hover {
   background-color: var(--hover);
   border-color: var(--border);
@@ -229,7 +216,7 @@ section .option-list .option:active {
     flex-direction: column;
     align-items: center;
   }
- 
+
   .results-container,
   .game-over {
     width: 220px;
