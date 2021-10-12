@@ -63,6 +63,55 @@ const constructOptions = function (options) {
   return optionsContainer;
 };
 
+const constructAlert = function (className, text) {
+  //construct div
+  const alertDiv = document.createElement("div");
+  alertDiv.setAttribute("class", className);
+  alertDiv.textContent = text;
+
+  return alertDiv;
+};
+
+const renderDangerAlert = function () {
+  // Construct alert
+  const alert = constructAlert("answer-alert-incorrect", "Wrong!");
+
+  // Append the alert to the document
+  document.getElementById("main-container").appendChild(alert);
+
+  // Declare a timeout function -> remove element
+  const afterWait = function () {
+    //  Remove alert
+    alert.remove();
+
+    // Kill timeout
+    clearTimeout(delay);
+  };
+
+  // Start a timeout
+  const delay = setTimeout(afterWait, 1000);
+};
+
+const renderSuccessAlert = function () {
+  // Construct alert
+  const alert = constructAlert("answer-alert-correct", "Correct!");
+
+  // Append the alert to the document
+  document.getElementById("main-container").appendChild(alert);
+
+  // Declare a timeout function -> remove element
+  const afterWait = function () {
+    //  Remove alert
+    alert.remove();
+
+    // Kill timeout
+    clearTimeout(delay);
+  };
+
+  // Start a timeout
+  const delay = setTimeout(afterWait, 1000);
+};
+
 const verifyAnswer = function (event) {
   const target = event.target;
   const currentTarget = event.currentTarget;
@@ -83,8 +132,10 @@ const verifyAnswer = function (event) {
     if (userOption !== correctOption) {
       // deduct 5 seconds
       count -= 5;
+      renderDangerAlert();
     } else {
       console.log("CORRECT");
+      renderSuccessAlert();
     }
   }
 
@@ -92,12 +143,13 @@ const verifyAnswer = function (event) {
   currentQuestionIndex += 1;
 
   // check if its the last question
-  if () {
+  if (currentQuestionIndex < questions.length) {
     // render the next question
-  removeQuestionContainer();
-  renderQuestionSection();
-
-  };
+    removeQuestionContainer();
+    renderQuestionSection();
+  } else {
+    console.log("render score form");
+  }
 };
 
 const constructQuestionContainer = function (question) {

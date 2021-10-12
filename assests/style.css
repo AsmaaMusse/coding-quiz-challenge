@@ -119,22 +119,6 @@ body {
   background-color: rgb(162, 255, 235);
 }
 
-.next-question {
-  height: 30px;
-  padding: 0px 13px;
-}
-
-.next-question:hover {
-  background: #cce5ff;
-  border-color: var(--border);
-  cursor: pointer;
-}
-
-.next-question:active {
-  position: relative;
-  top: 1px;
-}
-
 /* correct/incorrect alerts */
 .answer-alert-correct {
   position: relative;
@@ -153,7 +137,7 @@ body {
 }
 
 /* Results Page */
-.results-container {
+.score-form {
   display: flex;
   flex-direction: column;
   background-color: var(--background);
@@ -178,7 +162,7 @@ body {
 }
 
 /* Restart and Quit game button */
-.results-container .buttons button {
+.score-form .buttons button {
   margin: 5px;
   height: 30px;
   padding: 0px 13px;
@@ -215,7 +199,7 @@ body {
     align-items: center;
   }
 
-  .results-container,
+  .score-form,
   .game-over {
     width: 220px;
     margin: 50px;
