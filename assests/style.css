@@ -59,7 +59,6 @@ body {
 }
 
 /* Initial front page style */
-
 .start-container {
   display: flex;
   flex-direction: column;
@@ -75,7 +74,6 @@ body {
 }
 
 /* Quiz question styling */
-
 .question-section {
   display: flex;
   flex-direction: column;
@@ -137,6 +135,7 @@ body {
   top: 1px;
 }
 
+/* correct/incorrect alerts */
 .answer-alert-correct {
   position: relative;
   padding: 10px;
@@ -154,7 +153,6 @@ body {
 }
 
 /* Results Page */
-
 .results-container {
   display: flex;
   flex-direction: column;

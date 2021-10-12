@@ -23,7 +23,7 @@ const questions = [
     ],
   },
   {
-    question: "How do you create a function in JavaScript?",
+    title: "How do you create a function in JavaScript?",
     answer: "function myFunction{}",
     options: [
       "function myFunction{}",
@@ -37,6 +37,8 @@ const questions = [
     options: ["while i = 1 to 10", "while (i<=10)", "while (i<=10;i ++)"],
   },
 ];
+
+let count = questions.length * 5;
 
 const constructOptions = function (options) {
   const optionsContainer = document.createElement("div");
@@ -95,6 +97,24 @@ const removeStartContainer = function () {
   starterContainer.remove();
 };
 
+const startTimer = function () {
+  // Declare the timer
+  const timerTick = function () {
+    // check if the countdown has reached 0
+    if (count >= 0) {
+      // render countdown time in document
+      document.getElementById("countdown").textContent = count;
+      count -= 1;
+    } else {
+      // render game over container
+      console.log("GAME OVER");
+      clearInterval(timer);
+    }
+  };
+  const timer = setInterval(timerTick, 1000);
+  // Declare the timer tick function
+};
+
 // Function working when start button is called
 const startQuiz = function () {
   // Remove Start container
@@ -102,6 +122,9 @@ const startQuiz = function () {
 
   // Get question container
   renderQuestionSection();
+
+  // Start timer
+  startTimer();
 };
 
 // Target the Start Quiz button
