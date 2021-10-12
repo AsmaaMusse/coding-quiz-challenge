@@ -72,12 +72,49 @@ const constructAlert = function (className, text) {
   return alertDiv;
 };
 
+const constructForm = function () {
+  const divContainer = document.createElement("div");
+  divContainer.setAttribute("class", "score-form");
+
+  const form = document.createElement("form");
+
+  const h2Element = document.createElement("h2");
+  h2Element.setAttribute("class", "question");
+  h2Element.textContent = "Your score is " + count;
+
+  const formContainer = document.createElement("div");
+  formContainer.setAttribute("class", "form-container");
+
+  const formInputDiv = document.createElement("div");
+  formInputDiv.setAttribute("class", "form-item");
+
+  const formInput = document.createElement("input");
+  formInput.setAttribute("placeholder", "Enter your initials");
+
+  const formButtonDiv = document.createElement("div");
+  formButtonDiv.setAttribute("class", "form-item");
+
+  const formButton = document.createElement("button");
+  formButton.setAttribute("class", "btn");
+  formButton.textContent = "Submit";
+
+  formInputDiv.append(formInput);
+  formButtonDiv.append(formButton);
+
+  formContainer.append(formInputDiv, formButtonDiv);
+
+  form.append(h2Element, formContainer);
+  divContainer, append(form);
+
+  return divContainer;
+};
+
 const renderDangerAlert = function () {
   // Construct alert
   const alert = constructAlert("answer-alert-incorrect", "Wrong!");
 
   // Append the alert to the document
-  document.getElementById("main-container").appendChild(alert);
+  document.getElementById("alert-container").appendChild(alert);
 
   // Declare a timeout function -> remove element
   const afterWait = function () {
@@ -97,7 +134,7 @@ const renderSuccessAlert = function () {
   const alert = constructAlert("answer-alert-correct", "Correct!");
 
   // Append the alert to the document
-  document.getElementById("main-container").appendChild(alert);
+  document.getElementById("alert-container").appendChild(alert);
 
   // Declare a timeout function -> remove element
   const afterWait = function () {
@@ -110,6 +147,15 @@ const renderSuccessAlert = function () {
 
   // Start a timeout
   const delay = setTimeout(afterWait, 1000);
+};
+
+const renderScoreForm = function () {
+  // Remove the last question
+  removeQuestionContainer();
+
+  // Construct score form
+  const form = constructForm();
+  // Append form to document
 };
 
 const verifyAnswer = function (event) {
@@ -148,7 +194,7 @@ const verifyAnswer = function (event) {
     removeQuestionContainer();
     renderQuestionSection();
   } else {
-    console.log("render score form");
+    renderScoreForm();
   }
 };
 
@@ -205,17 +251,18 @@ const removeQuestionContainer = function () {
 const startTimer = function () {
   // Declare the timer
   const timerTick = function () {
-    // check if the countdown has reached 0
-    if (count >= 0) {
+    if (currentQuestionIndex >= questions.length) {
+      clearInterval(timer);
+    } else if (count < 0) {
+      clearInterval(timer);
+      console.log("GAME OVER");
       // render countdown time in document
+    } else {
       document.getElementById("countdown").textContent = count;
       count -= 1;
-    } else {
-      // render game over container
-      console.log("GAME OVER");
-      clearInterval(timer);
     }
   };
+
   const timer = setInterval(timerTick, 1000);
   // Declare the timer tick function
 };

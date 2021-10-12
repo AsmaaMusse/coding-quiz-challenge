@@ -148,14 +148,14 @@ body {
   text-align: center;
 }
 
-.submit,
+.btn,
 .buttons button {
   margin: 20px;
   height: 30px;
   padding: 0px 13px;
 }
 
-.submit:hover {
+.btn:hover {
   background-color: var(--hover);
   border-color: var(--border);
   cursor: pointer;
