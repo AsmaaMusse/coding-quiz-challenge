@@ -76,7 +76,7 @@ body {
 }
 
 /* Quiz question styling */
-.question-section {
+.question-container {
   display: flex;
   flex-direction: column;
   background-color: var(--background);
@@ -86,20 +86,18 @@ body {
   text-align: center;
   margin: 40px;
   padding: 40px;
+  align-items: center;
 }
 
-.question-section .question-text {
+.question-container .question-text {
   font-size: 25px;
   font-weight: 500;
 }
 
-.question-section .option-list {
+.question-container .option-item {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-}
-
-.option-list .option-item {
   align-items: center;
   justify-content: space-between;
   background: aliceblue;
@@ -184,15 +182,28 @@ body {
   text-align: center;
 }
 
-.buttons button:hover {
-  background-color: var(--hover);
-  border-color: var(--border);
-  cursor: pointer;
+.highscores-list {
+  list-style: none;
+  font-size: 1rem;
 }
 
-.buttons button:active {
-  position: relative;
-  top: 1px;
+.highscore-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--maximum-yellow-red);
+  margin-bottom: 0.2rem;
+}
+
+.highscore-container:hover {
+  background-color: var(--lemon-meringue);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 576px) {
@@ -205,5 +216,10 @@ body {
   .game-over {
     width: 220px;
     margin: 50px;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
   }
 }

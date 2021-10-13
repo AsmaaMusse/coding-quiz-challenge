@@ -37,19 +37,18 @@ const questions = [
     options: ["while i = 1 to 10", "while (i<=10)", "while (i<=10;i ++)"],
   },
 ];
-
-let count = questions.length * 5;
 let currentQuestionIndex = 0;
+let count = questions.length * 5;
 
 const constructOptions = function (options) {
   const optionsContainer = document.createElement("div");
-  optionsContainer.setAttribute("class", "option-list");
+  optionsContainer.setAttribute("class", "options-container");
 
   for (let i = 0; i < options.length; i++) {
-    // Get the current option from array
+    // get the current option from array
     const option = options[i];
 
-    // create button
+    // create my button
     const optionButton = document.createElement("button");
     optionButton.setAttribute("class", "option-item");
     optionButton.setAttribute("name", "option");
@@ -64,7 +63,7 @@ const constructOptions = function (options) {
 };
 
 const constructAlert = function (className, text) {
-  //construct div
+  // construct div
   const alertDiv = document.createElement("div");
   alertDiv.setAttribute("class", className);
   alertDiv.textContent = text;
@@ -72,9 +71,42 @@ const constructAlert = function (className, text) {
   return alertDiv;
 };
 
+const getFromLocalStorage = function (key, defaultValue) {
+  const localStorageData = JSON.parse(localStorage.getItem(key));
+
+  if (!localStorageData) {
+    return defaultValue;
+  } else {
+    return localStorageData;
+  }
+};
+
+const storeScore = function () {
+  // get count value
+  const score = count;
+
+  // get user initials from input
+  const initials = document.getElementById("user-initials").value;
+
+  // construct score object
+  const scoreObject = {
+    score: score,
+    initials: initials,
+  };
+
+  // get from LS before inserting object
+  const highscores = getFromLocalStorage("highscores", []);
+
+  // insert the score object
+  highscores.push(scoreObject);
+
+  // write back to LS
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+};
+
 const constructForm = function () {
   const divContainer = document.createElement("div");
-  divContainer.setAttribute("class", "score-form");
+  divContainer.setAttribute("class", "container score-form");
 
   const form = document.createElement("form");
 
@@ -90,6 +122,7 @@ const constructForm = function () {
 
   const formInput = document.createElement("input");
   formInput.setAttribute("placeholder", "Enter your initials");
+  formInput.setAttribute("id", "user-initials");
 
   const formButtonDiv = document.createElement("div");
   formButtonDiv.setAttribute("class", "form-item");
@@ -105,59 +138,60 @@ const constructForm = function () {
 
   form.append(h2Element, formContainer);
   divContainer.append(form);
-  console.log(form);
+
+  form.addEventListener("submit", storeScore);
 
   return divContainer;
 };
 
-const renderDangerAlert = function () {
-  // Construct alert
-  const alert = constructAlert("answer-alert-incorrect", "Wrong!");
+const renderSuccessAlert = function () {
+  // construct alert
+  const alert = constructAlert("answer-alert answer-alert-correct", "correct!");
 
-  // Append the alert to the document
+  // append the alert to the document
   document.getElementById("alert-container").appendChild(alert);
 
-  // Declare a timeout function -> remove element
+  // declare a timeout function (to remove the element)
   const afterWait = function () {
-    //  Remove alert
+    // remove alert
     alert.remove();
 
-    // Kill timeout
+    // kill timeout
     clearTimeout(delay);
   };
 
-  // Start a timeout
+  // start a timeout (delay)
   const delay = setTimeout(afterWait, 1000);
 };
 
-const renderSuccessAlert = function () {
-  // Construct alert
-  const alert = constructAlert("answer-alert-correct", "Correct!");
+const renderDangerAlert = function () {
+  // construct alert
+  const alert = constructAlert("answer-alert answer-alert-incorrect", "Wrong!");
 
-  // Append the alert to the document
+  // append the alert to the document
   document.getElementById("alert-container").appendChild(alert);
 
-  // Declare a timeout function -> remove element
+  // declare a timeout function (to remove the element)
   const afterWait = function () {
-    //  Remove alert
+    // remove alert
     alert.remove();
 
-    // Kill timeout
+    // kill timeout
     clearTimeout(delay);
   };
 
-  // Start a timeout
+  // start a timeout (delay)
   const delay = setTimeout(afterWait, 1000);
 };
 
 const renderScoreForm = function () {
-  // Remove the last question
-  removeQuestionContainer();
+  // remove the last question
+  removeQuestionSection();
 
-  // Construct score form
+  // construct score form
   const form = constructForm();
 
-  // Append form to document
+  // append form to document
   document.getElementById("main-container").append(form);
 };
 
@@ -165,125 +199,153 @@ const verifyAnswer = function (event) {
   const target = event.target;
   const currentTarget = event.currentTarget;
 
-  console.log(target.getAttribute("name"));
-
-  // check if click is from button only
+  // check if click is from button ONLY
   if (target.getAttribute("name") === "option") {
-    // Get the option that was clicked
+    // get the option user clicked on
     const userOption = target.getAttribute("data-option");
 
-    // Get the correct option for the question
+    // get the correct option for the question
     const correctOption = currentTarget.getAttribute("data-correct");
-
-    console.log(userOption, correctOption);
 
     // verify the 2
     if (userOption !== correctOption) {
-      // deduct 5 seconds
+      // time penalty deduct 5 seconds
       count -= 5;
       renderDangerAlert();
+      if (count > 0) {
+        document.getElementById("countdown").textContent = count;
+      } else {
+        document.getElementById("countdown").textContent = 0;
+      }
     } else {
-      console.log("CORRECT");
       renderSuccessAlert();
     }
-  }
 
-  // Go to next question
-  currentQuestionIndex += 1;
+    // go to next question 0 1 2 (3)
+    currentQuestionIndex += 1;
 
-  // check if its the last question
-  if (currentQuestionIndex < questions.length) {
-    // render the next question
-    removeQuestionContainer();
-    renderQuestionSection();
-  } else {
-    renderScoreForm();
+    // check if last question
+    if (currentQuestionIndex < questions.length) {
+      // render the next question
+      removeQuestionSection();
+      renderQuestionSection();
+    } else {
+      if (count > 0) {
+        renderScoreForm();
+      } else {
+        removeQuestionSection();
+        renderGameOver();
+      }
+    }
   }
 };
 
-const constructQuestionContainer = function (question) {
+const constructQuestionSection = function (question) {
   // construct container div
-  const questionContainer = document.createElement("div");
-  questionContainer.setAttribute("class", "container question-section");
-  questionContainer.setAttribute("id", "question-section");
-  questionContainer.setAttribute("data-correct", question.correctOption);
+  const questionSection = document.createElement("div");
+  questionSection.setAttribute("class", "container question-container");
+  questionSection.setAttribute("id", "question-container");
+  questionSection.setAttribute("data-correct", question.correctOption);
 
-  //  construct h2 element
+  // construct h2 element
   const questionH2 = document.createElement("h2");
-  questionH2.setAttribute("class", "question-text");
+  questionH2.setAttribute("class", "question");
   questionH2.textContent = question.title;
 
   // construct options div
   const options = constructOptions(question.options);
 
-  // appending h2 and options div to section div
-  questionContainer.append(questionH2, options);
+  // appending h2 and options div to container div
+  questionSection.append(questionH2, options);
 
-  // Add event listener
-  questionContainer.addEventListener("click", verifyAnswer);
+  // add event listener to listen for click events
+  questionSection.addEventListener("click", verifyAnswer);
 
-  return questionContainer;
+  return questionSection;
 };
 
+// render question container
 const renderQuestionSection = function () {
-  // Render the current question
+  // get the current question
   const currentQuestion = questions[currentQuestionIndex];
 
-  // construct the HTML fort the question section
-  const questionContainer = constructQuestionContainer(currentQuestion);
-  // Append the container to the document
-  document.getElementById("main-container").appendChild(questionContainer);
+  // construct the HTML for the question container
+  const questionSection = constructQuestionSection(currentQuestion);
+
+  // append the container to the document
+  document.getElementById("main-container").appendChild(questionSection);
 };
 
 const removeStartContainer = function () {
-  // Target start container
-  const starterContainer = document.getElementById("start-container");
-
-  // Remove from document
-  starterContainer.remove();
+  // target start container
+  const startContainer = document.getElementById("start-container");
+  // remove from document
+  startContainer.remove();
 };
 
-const removeQuestionContainer = function () {
-  // Target question container
-  const questionContainer = document.getElementById("question-section");
+const removeQuestionSection = function () {
+  // target question container
+  const questionSection = document.getElementById("question-container");
+  // remove from document
+  questionSection.remove();
+};
 
-  // Remove from document
-  questionContainer.remove();
+const renderGameOver = function () {
+  const divContainer = document.createElement("div");
+  divContainer.setAttribute("class", "container game-over");
+
+  const h2Element = document.createElement("h2");
+  h2Element.textContent = "GAME OVER";
+
+  divContainer.append(h2Element);
+
+  document.getElementById("main-container").append(divContainer);
 };
 
 const startTimer = function () {
-  // Declare the timer
+  // declare the timer tick function
   const timerTick = function () {
     if (currentQuestionIndex >= questions.length) {
       clearInterval(timer);
     } else if (count < 0) {
       clearInterval(timer);
-      console.log("GAME OVER");
-      // render countdown time in document
+      removeQuestionSection();
+      renderGameOver();
     } else {
-      document.getElementById("countdown").textContent = count;
       count -= 1;
+      document.getElementById("countdown").textContent = count;
     }
   };
 
+  // declare the timer
   const timer = setInterval(timerTick, 1000);
-  // Declare the timer tick function
 };
 
-// Function working when start button is called
+const initialLocalStorage = function () {
+  const dataFromLS = JSON.parse(localStorage.getItem("highscores"));
+
+  if (!dataFromLS) {
+    localStorage.setItem("highscores", JSON.stringify([]));
+  }
+};
+
+// function to execute when start button is called
 const startQuiz = function () {
-  // Remove Start container
+  // initialize local storage
+  initialLocalStorage();
+
+  // remove start container
   removeStartContainer();
 
-  // Get question container
+  // render question container
   renderQuestionSection();
 
-  // Start timer
+  // start timer
   startTimer();
 };
 
-// Target the Start Quiz button
-const startBtn = document.getElementById("start-quiz");
+// target the start quiz button
+const startButton = document.getElementById("start-quiz");
 
-// Add an event listener
-startBtn.addEventListener("click", startQuiz);
+// add a click event listener and start quiz
+startButton.addEventListener("click", startQuiz);
