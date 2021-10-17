@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assests/style.css" />
+    <title>Coding quiz</title>
+  </head>
+
+  <body>
+    <!--Navbar,stays at the top throughout-->
+    <header class="header" id="header">
+      <div class="highscore-container" id="highScore">
+        <a href="./highscores.html">View High Score</a>
+      </div>
+
+      <div class="timer">Time: <span id="countdown">0</span></div>
+    </header>
+
+    <h1 class="title" id="title">Coding quiz challenge</h1>
+
+    <!--Initial starter page -->
+
+    <div id="alert-container"></div>
+
+    <main class="main" id="main-container">
+      <section class="start-container" id="start-container">
+        <div>
+          <p class="paragraph" id="paragraph">
+            Try to answer the following question which are based on; HTML,CSS
+            and JavaScript.You have 25 seconds to answer all questions. Keep in
+            mind that for any incorrect answer you will be penalized by 3
+            seconds.
+          </p>
+        </div>
+
+        <div class="start-btn" id="start-quiz"><button>Start Quiz</button></div>
+      </section>
+    </main>
+
+    <script src="./assests/javascript/index.js"></script>
+  </body>
+</html>
