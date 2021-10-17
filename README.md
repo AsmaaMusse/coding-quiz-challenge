@@ -15,10 +15,10 @@ GitHub page: https://github.com/AsmaaMusse/coding-quiz-challenge/tree/dev
 
 ### Technologies used:
 
--HTML
--CSS
--JavaScript
--Web APIs
+- HTML
+- CSS
+- JavaScript
+- Web APIs
 
 ## Screenshots:
 
