@@ -312,8 +312,8 @@ const startTimer = function () {
       removeQuestionSection();
       renderGameOver();
     } else {
-      count -= 1;
       document.getElementById("countdown").textContent = count;
+      count -= 1;
     }
   };
 
