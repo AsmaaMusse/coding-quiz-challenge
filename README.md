@@ -6,7 +6,7 @@ For this project my aim was to create an interactive coding quiz challenge from 
 
 Deployed Link: https://asmaamusse.github.io/coding-quiz-challenge/
 
-GitHub page: https://github.com/AsmaaMusse/coding-quiz-challenge/tree/dev
+GitHub page: https://github.com/AsmaaMusse/coding-quiz-challenge
 
 ### What did i do?
 
