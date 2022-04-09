@@ -4,6 +4,13 @@
 
 For this project my aim was to create an interactive coding quiz challenge from scratch using Javascript and Web APIs.
 
+## Table of contents:
+- [Links](#links)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+- [Contribute](#contribute)
+
+## Links:
 Deployed Link: https://asmaamusse.github.io/coding-quiz-challenge/
 
 GitHub page: https://github.com/AsmaaMusse/coding-quiz-challenge
